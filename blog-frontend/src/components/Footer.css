@@ -1,0 +1,83 @@
+/* ---------------- Footer ---------------- */
+.footer {
+  background: rgba(50, 0, 80, 0.6); /* semi-transparent dark purple */
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 3rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.footer:hover {
+  transform: translateY(-3px);
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Gradient silver logo */
+.footer-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, silver, #dcdcdc, #a9a9a9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Footer text */
+.footer-text {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+/* Social icons */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.footer-socials a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Gradient underline like navbar links */
+.footer-socials a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, #a4508b, #5f0a87);
+  transition: width 0.3s ease;
+  border-radius: 1px;
+}
+
+.footer-socials a:hover::after {
+  width: 100%;
+}
+
+.footer-socials a:hover {
+  color: #d8b6e0;
+  transform: translateY(-2px);
+}
