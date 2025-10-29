@@ -1,15 +1,29 @@
+/* === Layout Wrapper === */
 .intro-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 4rem 8%;
-  min-height: 90vh;
-  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  min-height: 100vh; /* ✅ full screen */
+  position: relative;
+  overflow: hidden;
 }
 
+/* ✅ Particles must be behind everything */
+.intro-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ✅ Text Section */
 .intro-content {
   flex: 1;
   max-width: 600px;
+  position: relative;
+  z-index: 10;
 }
 
 .intro-logo {
@@ -24,6 +38,7 @@
   color: #444;
 }
 
+/* ✅ Buttons */
 .intro-buttons {
   display: flex;
   gap: 1rem;
@@ -58,17 +73,25 @@
   color: white;
 }
 
+/* ✅ Illustration */
+.intro-illustration {
+  position: relative;
+  z-index: 10;
+}
+
 .intro-illustration img {
   width: 400px;
   max-width: 90%;
   animation: float 3s ease-in-out infinite;
 }
 
+/* Floating image animation */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
 
+/* ✅ Responsive */
 @media (max-width: 900px) {
   .intro-container {
     flex-direction: column;
@@ -78,4 +101,9 @@
   .intro-illustration {
     margin-top: 2rem;
   }
+}
+
+/* ✅ Fix canvas visibility issue */
+canvas {
+  display: block !important;
 }

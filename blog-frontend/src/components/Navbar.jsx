@@ -14,7 +14,7 @@ const Navbar = ({ setToken }) => {
 
   return (
     <nav className="navbar">
-      <div className="logo">MyBlog</div>
+      <div className="logo">MyBlog🔮</div>
 
       <div className="links">
         <Link to="/">Home</Link>

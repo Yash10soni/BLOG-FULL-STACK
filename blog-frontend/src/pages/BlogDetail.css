@@ -1,47 +1,75 @@
 .blog-detail-container {
   max-width: 900px;
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 1.5rem;
+  background: rgba(40, 0, 70, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  color: #f0f0f0;
 }
 
+/* Main Image */
 .blog-detail-image {
-  width: 200px;
-  max-width: 50%;
-  height: auto;
+  width: 100%;
+  max-height: 400px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
-.blog-meta {
-  color: #555;
-  font-size: 0.9rem;
+/* Title and Content */
+.blog-detail-container h1 {
+  background: linear-gradient(90deg, #c9b6ff, #e4c1f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
   margin-bottom: 1rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  text-align: center;
 }
 
+.blog-detail-container p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #eaeaea;
+}
+
+/* Meta Info */
+.blog-meta {
+  color: #bbb;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Buttons */
 .blog-detail-buttons {
-  margin: 1rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .blog-detail-buttons .btn {
-  padding: 0.5rem 1rem;
-  margin-right: 1rem;
+  padding: 0.5rem 1.2rem;
+  margin: 0 0.5rem;
   border-radius: 6px;
   border: none;
   cursor: pointer;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   color: #fff;
 }
 
 .btn-edit {
-  background-color: #0077cc;
+  background: linear-gradient(90deg, #5f0a87, #a4508b);
 }
 .btn-edit:hover {
-  background-color: #005fa3;
+  background: linear-gradient(90deg, #a4508b, #5f0a87);
+  transform: translateY(-2px);
 }
 
 .btn-delete {
@@ -49,45 +77,49 @@
 }
 .btn-delete:hover {
   background-color: #990000;
+  transform: translateY(-2px);
 }
 
-/* Public blogs below the main blog */
+/* Public blogs below */
 .public-blogs-title {
   margin-top: 3rem;
-  color: #1e3c72;
-  font-size: 1.5rem;
+  color: #ffdd57;
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: 600;
 }
 
 .public-blogs-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .blog-card {
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #fff;
 }
 
 .blog-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
 .blog-card img.blog-image {
   width: 100%;
-  max-height: 100%;
+  max-height: 180px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 0.5rem;
 }
 
 .blog-card h3 a {
-  color: #0077cc;
+  color: #d4a5ff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -97,21 +129,27 @@
 }
 
 .blog-card .blog-meta {
-  font-size: 0.8rem;
-  color: #555;
+  font-size: 0.85rem;
+  color: #ccc;
 }
 
-/* Responsive for BlogDetail page */
+/* Responsive */
 @media (max-width: 768px) {
+  .blog-detail-container {
+    padding: 1rem;
+  }
+
+  .blog-detail-container h1 {
+    font-size: 1.6rem;
+  }
+
   .blog-detail-image {
-    width: 50%;
-    max-width: 250px;
-    height: auto;
-    margin-bottom: 1rem;
+    max-height: 250px;
   }
 
   .blog-meta {
     flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
   }
 }
