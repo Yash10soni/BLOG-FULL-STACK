@@ -14,6 +14,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProtectedRoute from "./components/ProtectedRoutes";
 import IntroPage from "./pages/IntroPage";
+import AIBox from "./components/AIBox";
+
 import "./App.css";
 
 const App = () => {
@@ -85,6 +87,15 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+  path="/ai"
+  element={
+    <ProtectedRoute>
+      <AIBox />
+    </ProtectedRoute>
+  }
+/>
+
       </Routes>
       <Footer />
     </Router>

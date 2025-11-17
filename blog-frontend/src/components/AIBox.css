@@ -1,0 +1,60 @@
+.ai-container {
+  width: 450px;
+  margin: 60px auto;
+  padding: 25px;
+  background: rgb(60, 17, 71);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ai-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  font-size: 15px;
+  margin-bottom: 15px;
+  transition: border-color 0.2s;
+}
+
+.ai-input:focus {
+  border-color: black;
+  outline: none;
+}
+
+.ai-btn {
+  width: 100%;
+  padding: 12px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ai-btn:hover {
+  background: #333;
+}
+
+.response-title {
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+.ai-response {
+  background: #070202;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #100f0f;
+  white-space: pre-wrap;
+  min-height: 80px;
+  margin-top: 10px;
+}

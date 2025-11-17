@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchBlogs, deleteBlog } from "../api"; // updated imports
+import { fetchBlogs, deleteBlog } from "../api";
 import { fetchDevTo, fetchNewsAPI } from "../publicApis";
 import "./HomeBlogs.css";
+
+import AIBox from "../components/AIBox";   // ⭐ ADD THIS
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [publicBlogs, setPublicBlogs] = useState([]);
 
-  const token = localStorage.getItem("token"); // get token from localStorage
+  const token = localStorage.getItem("token");
 
-  // 🔹 Fetch user blogs
   const loadBlogs = async () => {
     try {
       const res = await fetchBlogs();
@@ -20,7 +21,6 @@ const Home = () => {
     }
   };
 
-  // 🔹 Fetch public blogs
   const loadPublicBlogs = async () => {
     try {
       const devto = await fetchDevTo();
@@ -36,11 +36,10 @@ const Home = () => {
     loadPublicBlogs();
   }, []);
 
-  // 🔹 Delete blog using token
   const handleDelete = async (id) => {
     try {
       await deleteBlog(id, token);
-      loadBlogs(); // refresh list after deletion
+      loadBlogs();
     } catch (err) {
       console.error(err);
     }
@@ -48,6 +47,10 @@ const Home = () => {
 
   return (
     <div className="home-container">
+
+      {/* ⭐ FIX: SHOW GROK AI BOX ON HOMEPAGE ⭐ */}
+      <AIBox />
+
       <h1>Your Blogs</h1>
       {blogs.length === 0 && <p>No blogs yet.</p>}
 
@@ -64,10 +67,8 @@ const Home = () => {
               <p>{blog.content.substring(0, 400)}...</p>
               <p className="home-blog-meta">
                 <strong>Author:</strong> {blog.author || "Unknown"} |{" "}
-                <strong>Date:</strong>{" "}
-                {new Date(blog.created_at).toLocaleDateString()} |{" "}
-                <strong>Time:</strong>{" "}
-                {new Date(blog.created_at).toLocaleTimeString()}
+                <strong>Date:</strong> {new Date(blog.created_at).toLocaleDateString()} |{" "}
+                <strong>Time:</strong> {new Date(blog.created_at).toLocaleTimeString()}
               </p>
               <div className="home-blog-buttons">
                 <Link to={`/edit/${blog.id}`} className="home-btn home-btn-edit">
