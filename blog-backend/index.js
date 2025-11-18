@@ -27,6 +27,10 @@ app.get("/api/protected", authMiddleware, (req, res) => {
   res.json({ message: "Welcome, you are authorized!", user: req.user });
 });
 
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Start server
 app.listen(5000, () => {
   console.log("✅ Server running on http://localhost:5000");
