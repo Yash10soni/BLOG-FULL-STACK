@@ -13,11 +13,10 @@ const Register = ({ setToken }) => {
     try {
       const BASE_URL = process.env.REACT_APP_API_URL;
 
-      // Register user
-await axios.post(`${BASE_URL}/auth/register/`, { name, email, password });
+      await axios.post(`${BASE_URL}/auth/register`, { name, email, password });
 
-      // Auto-login
       const res = await axios.post(`${BASE_URL}/auth/login`, { email, password });
+
       const { token } = res.data;
 
       localStorage.setItem("token", token);
@@ -25,37 +24,21 @@ await axios.post(`${BASE_URL}/auth/register/`, { name, email, password });
 
       navigate("/");
     } catch (err) {
-  console.error(err); // ✅ log full error
-  alert(err.response?.data?.error || err.message || "Registration failed");
-}
-
+      console.error(err);
+      alert(err.response?.data?.error || err.message || "Registration failed");
+    }
   };
 
   return (
     <div className="auth-container">
       <h2>Register</h2>
       <form onSubmit={handleSubmit} className="auth-form">
-        <input
-          type="text"
-          placeholder="Enter name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Enter email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Create password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <input type="text" placeholder="Enter name" value={name}
+          onChange={(e) => setName(e.target.value)} required />
+        <input type="email" placeholder="Enter email" value={email}
+          onChange={(e) => setEmail(e.target.value)} required />
+        <input type="password" placeholder="Create password" value={password}
+          onChange={(e) => setPassword(e.target.value)} required />
         <button type="submit">Register</button>
       </form>
     </div>

@@ -11,7 +11,8 @@ const Login = ({ setToken }) => {
     e.preventDefault();
     try {
       const BASE_URL = process.env.REACT_APP_API_URL;
-const res = await axios.post(`${BASE_URL}/auth/login/`, { email, password });
+
+      const res = await axios.post(`${BASE_URL}/auth/login`, { email, password });
 
       const { token } = res.data;
 
@@ -28,20 +29,10 @@ const res = await axios.post(`${BASE_URL}/auth/login/`, { email, password });
     <div className="auth-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit} className="auth-form">
-        <input
-          type="email"
-          placeholder="Enter email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Enter password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <input type="email" placeholder="Enter email" value={email}
+          onChange={(e) => setEmail(e.target.value)} required />
+        <input type="password" placeholder="Enter password" value={password}
+          onChange={(e) => setPassword(e.target.value)} required />
         <button type="submit">Login</button>
       </form>
     </div>
