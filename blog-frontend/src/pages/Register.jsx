@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import "./Auth.css"; // optional
 
 const Register = ({ setToken }) => {
   const [name, setName] = useState("");
@@ -9,19 +8,21 @@ const Register = ({ setToken }) => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       // Register user
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post(`${API_URL}/api/auth/register`, {
         name,
         email,
         password,
       });
 
-      // Then auto-login
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      // Auto-login after registration
+      const res = await axios.post(`${API_URL}/api/auth/login`, {
         email,
         password,
       });

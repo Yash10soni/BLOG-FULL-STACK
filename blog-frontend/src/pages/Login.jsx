@@ -1,29 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import "./Auth.css"; // optional
 
 const Login = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post(`${API_URL}/api/auth/login`, {
         email,
         password,
       });
 
       const { token } = res.data;
-
-      // ✅ Save token & update state immediately
       localStorage.setItem("token", token);
       setToken(token);
 
-      // ✅ Redirect to home (HomeBlogs will show)
       navigate("/");
     } catch (err) {
       alert(err.response?.data?.error || "Login failed");
