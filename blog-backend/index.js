@@ -12,7 +12,9 @@ const app = express();
 
 // Middleware
 // app.use(cors());
-app.use(cors({ origin: "https://blog-full-stack-mxcd.onrender.com" }));
+// app.use(cors({ origin: "https://blog-full-stack-mxcd.onrender.com" }));
+app.use(cors({ origin: "*" }));
+
 
 app.use(express.json());
 
