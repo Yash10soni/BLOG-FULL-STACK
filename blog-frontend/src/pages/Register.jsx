@@ -10,24 +10,16 @@ const Register = ({ setToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const BASE_URL = process.env.REACT_APP_API_URL;
 
       // Register user
-      await axios.post(`${BASE_URL}/auth/register`, {
-        name,
-        email,
-        password,
-      });
+      await axios.post(`${BASE_URL}/auth/register`, { name, email, password });
 
       // Auto-login
-      const res = await axios.post(`${BASE_URL}/auth/login`, {
-        email,
-        password,
-      });
-
+      const res = await axios.post(`${BASE_URL}/auth/login`, { email, password });
       const { token } = res.data;
+
       localStorage.setItem("token", token);
       setToken(token);
 

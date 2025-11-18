@@ -6,17 +6,17 @@ function AIBox() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
 
+  const BASE_URL = process.env.REACT_APP_API_URL; // use env variable
+
   const askAI = async () => {
     if (!prompt.trim()) return alert("Type something!");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/ai/ask", {
-        prompt,
-      });
-
+      const res = await axios.post(`${BASE_URL}/ai/ask`, { prompt });
       setResponse(res.data.response);
     } catch (err) {
       setResponse("Server error.");
+      console.error(err);
     }
   };
 
