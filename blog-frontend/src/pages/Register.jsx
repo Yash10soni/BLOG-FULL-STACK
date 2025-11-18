@@ -25,8 +25,10 @@ const Register = ({ setToken }) => {
 
       navigate("/");
     } catch (err) {
-      alert(err.response?.data?.error || "Registration failed");
-    }
+  console.error(err); // ✅ log full error
+  alert(err.response?.data?.error || err.message || "Registration failed");
+}
+
   };
 
   return (
