@@ -12,7 +12,7 @@ const Login = ({ setToken }) => {
     try {
       const BASE_URL = process.env.REACT_APP_API_URL;
 
-      const res = await axios.post(`${BASE_URL}/auth/login`, { email, password });
+      const res = await axios.post(`${BASE_URL}/api/auth/login`, { email, password });
 
       const { token } = res.data;
 

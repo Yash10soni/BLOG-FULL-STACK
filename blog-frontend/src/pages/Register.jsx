@@ -13,9 +13,9 @@ const Register = ({ setToken }) => {
     try {
       const BASE_URL = process.env.REACT_APP_API_URL;
 
-      await axios.post(`${BASE_URL}/auth/register`, { name, email, password });
+      await axios.post(`${BASE_URL}/api/auth/register`, { name, email, password });
 
-      const res = await axios.post(`${BASE_URL}/auth/login`, { email, password });
+      const res = await axios.post(`${BASE_URL}/api/auth/login`, { email, password });
 
       const { token } = res.data;
 
