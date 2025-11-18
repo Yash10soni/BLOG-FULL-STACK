@@ -36,6 +36,7 @@ const Register = ({ setToken }) => {
       alert(err.response?.data?.error || "Registration failed");
     }
   };
+console.log("API URL:", process.env.REACT_APP_API_URL);
 
   return (
     <div className="auth-container">
