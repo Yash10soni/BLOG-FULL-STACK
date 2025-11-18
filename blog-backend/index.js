@@ -1,11 +1,10 @@
-// server.js
 import express from "express";
 import cors from "cors";
 
 import blogRoutes from "./routes/blogRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import aiRoutes from "./routes/aiRoutes.js";   // ➜ Add this
+import aiRoutes from "./routes/aiRoutes.js";
 
 import authMiddleware from "./middleware/authMiddleware.js";
 
@@ -19,19 +18,21 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/profiles", profileRoutes);
+app.use("/api/ai", aiRoutes);
 
-// AI Route
-app.use("/api/ai", aiRoutes);   // ➜ NEW
-
+// Protected route example
 app.get("/api/protected", authMiddleware, (req, res) => {
   res.json({ message: "Welcome, you are authorized!", user: req.user });
 });
 
-app.get('/healthz', (req, res) => {
-  res.status(200).send('OK');
+// Health check route for Render
+app.get("/healthz", (req, res) => {
+  res.status(200).send("OK");
 });
 
-// Start server
-app.listen(5000, () => {
-  console.log("✅ Server running on http://localhost:5000");
+// Dynamic Port for Render
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
