@@ -13,7 +13,8 @@ const app = express();
 // Middleware
 // app.use(cors());
 // app.use(cors({ origin: "https://blog-full-stack-mxcd.onrender.com" }));
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "https://blog-full-stack-kappa.vercel.app/" }));
+
 
 
 app.use(express.json());
