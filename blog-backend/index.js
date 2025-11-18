@@ -11,7 +11,9 @@ import authMiddleware from "./middleware/authMiddleware.js";
 const app = express();
 
 // Middleware
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: "https://blog-full-stack-mxcd.onrender.com" }));
+
 app.use(express.json());
 
 // Routes
