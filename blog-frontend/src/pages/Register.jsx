@@ -8,21 +8,21 @@ const Register = ({ setToken }) => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const API_URL = process.env.REACT_APP_API_URL;
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      const BASE_URL = process.env.REACT_APP_API_URL;
+
       // Register user
-      await axios.post(`${API_URL}/api/auth/register`, {
+      await axios.post(`${BASE_URL}/auth/register`, {
         name,
         email,
         password,
       });
 
-      // Auto-login after registration
-      const res = await axios.post(`${API_URL}/api/auth/login`, {
+      // Auto-login
+      const res = await axios.post(`${BASE_URL}/auth/login`, {
         email,
         password,
       });
@@ -36,7 +36,6 @@ const Register = ({ setToken }) => {
       alert(err.response?.data?.error || "Registration failed");
     }
   };
-console.log("API URL:", process.env.REACT_APP_API_URL);
 
   return (
     <div className="auth-container">
