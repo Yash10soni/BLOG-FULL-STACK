@@ -12,7 +12,7 @@ function AIBox() {
     if (!prompt.trim()) return alert("Type something!");
 
     try {
-      const res = await axios.post(`${BASE_URL}/ai/ask`, { prompt });
+      const res = await axios.post(`${BASE_URL}/api/ai/ask`, { prompt });
       setResponse(res.data.response);
     } catch (err) {
       setResponse("Server error.");
