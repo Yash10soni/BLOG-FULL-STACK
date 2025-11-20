@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createBlog } from "../api"; // API call
-import "./CreateBlog.css"; // CSS for styling
+import { createBlog } from "../api";
+import "./CreateBlog.css";
 
 const CreateBlog = ({ token }) => {
   const [title, setTitle] = useState("");
@@ -12,12 +12,17 @@ const CreateBlog = ({ token }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!token) return alert("Please login first!");
+
+    // Check login properly
+    const authToken = token || localStorage.getItem("token");
+    if (!authToken) return alert("Please login first!");
 
     try {
-      const blogData = { title, author, image, content }; // use 'image' for backend
-      await createBlog(blogData, token); // pass token
-      navigate("/"); // redirect to homepage
+      const blogData = { title, author, image, content };
+
+      await createBlog(blogData, authToken);
+
+      navigate("/"); // redirect
     } catch (err) {
       console.error("Error creating blog:", err.response || err);
       alert("Failed to create blog");
@@ -27,6 +32,7 @@ const CreateBlog = ({ token }) => {
   return (
     <form onSubmit={handleSubmit} className="blog-form">
       <h2>Create Blog</h2>
+
       <input
         type="text"
         placeholder="Title"
@@ -35,6 +41,7 @@ const CreateBlog = ({ token }) => {
         required
         className="blog-input"
       />
+
       <input
         type="text"
         placeholder="Image URL"
@@ -42,6 +49,7 @@ const CreateBlog = ({ token }) => {
         onChange={(e) => setImage(e.target.value)}
         className="blog-input"
       />
+
       <input
         type="text"
         placeholder="Author"
@@ -49,6 +57,7 @@ const CreateBlog = ({ token }) => {
         onChange={(e) => setAuthor(e.target.value)}
         className="blog-input"
       />
+
       <textarea
         placeholder="Content"
         value={content}
@@ -57,9 +66,8 @@ const CreateBlog = ({ token }) => {
         rows={8}
         className="blog-textarea"
       />
-      <button type="submit" className="blog-btn">
-        Submit
-      </button>
+
+      <button type="submit" className="blog-btn">Submit</button>
     </form>
   );
 };

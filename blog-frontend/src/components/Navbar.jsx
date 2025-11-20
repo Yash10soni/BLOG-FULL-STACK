@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa"; // profile icon
 import "./Navbar.css";
 
 const Navbar = ({ setToken }) => {
@@ -8,8 +9,8 @@ const Navbar = ({ setToken }) => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    setToken(null); // ✅ update app state immediately
-    navigate("/"); // ✅ go back to intro page
+    setToken(null);
+    navigate("/");
   };
 
   return (
@@ -21,9 +22,13 @@ const Navbar = ({ setToken }) => {
         {token ? (
           <>
             <Link to="/create">Create</Link>
-            <button onClick={handleLogout} className="logout-btn">
-              Logout
-            </button>
+            <FaUserCircle
+              size={28}
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/profile")}
+              title="Profile"
+            />
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
           </>
         ) : (
           <>

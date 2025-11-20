@@ -2,25 +2,22 @@
 /* body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #0a0a0a; 
+  background: #0a0a0a;
   color: #eee;
   line-height: 1.6;
 } */
+
+
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-  /* Overlay + 3 images: left, center, right */
-  background: 
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), /* overlay */
-    url('https://i.pinimg.com/736x/f8/33/76/f8337684ee6984b2198dacee61479183.jpg') left center / 33% 100% no-repeat,
-    url('https://i.pinimg.com/736x/4a/ab/fb/4aabfbf3ac668dbe3ca9ab5943bb4064.jpg') center center / 34% 100% no-repeat,
-    url('https://i.pinimg.com/1200x/a7/07/92/a707925633db413cd7d514767ecdfa1f.jpg') right center / 33% 100% no-repeat;
-
-  background-attachment: fixed;
-
-  color: #eee;
-  line-height: 1.6;
+background: #5f0a87;
+  /* Direct URL as background */
+  background-image: url('https://i.pinimg.com/736x/85/27/f1/8527f12e83003488efc5de0ac1d7ab09.jpg');
+  background-size: cover;       /* cover the whole screen */
+  background-repeat: no-repeat; /* don’t repeat */
+  background-position: center;  /* center it */
+  background-attachment: fixed; /* stays fixed when scrolling */
 }
 
 

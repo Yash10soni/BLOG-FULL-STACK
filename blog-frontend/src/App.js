@@ -31,6 +31,7 @@ const App = () => {
   }, []);
 
   return (
+    
     <Router>
       <Navbar setToken={setToken} />
       <Routes>
@@ -71,14 +72,14 @@ const App = () => {
 
         {/* Blog routes (protected) */}
         <Route path="/blog/:id" element={<BlogDetail />} />
-        <Route
-          path="/create"
-          element={
-            <ProtectedRoute>
-              <CreateBlog />
-            </ProtectedRoute>
-          }
-        />
+      <Route
+  path="/create"
+  element={
+    <ProtectedRoute>
+      <CreateBlog token={token} />
+    </ProtectedRoute>
+  }
+/>
         <Route
           path="/edit/:id"
           element={

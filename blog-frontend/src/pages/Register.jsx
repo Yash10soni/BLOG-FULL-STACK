@@ -8,11 +8,13 @@ const Register = ({ setToken }) => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  // ⭐ FIX: Move BASE_URL here
+  const BASE_URL = process.env.REACT_APP_API_URL;
+  console.log("BASE_URL =", BASE_URL);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const BASE_URL = process.env.REACT_APP_API_URL;
-
       await axios.post(`${BASE_URL}/api/auth/register`, { name, email, password });
 
       const res = await axios.post(`${BASE_URL}/api/auth/login`, { email, password });
@@ -35,10 +37,13 @@ const Register = ({ setToken }) => {
       <form onSubmit={handleSubmit} className="auth-form">
         <input type="text" placeholder="Enter name" value={name}
           onChange={(e) => setName(e.target.value)} required />
+
         <input type="email" placeholder="Enter email" value={email}
           onChange={(e) => setEmail(e.target.value)} required />
+
         <input type="password" placeholder="Create password" value={password}
           onChange={(e) => setPassword(e.target.value)} required />
+
         <button type="submit">Register</button>
       </form>
     </div>

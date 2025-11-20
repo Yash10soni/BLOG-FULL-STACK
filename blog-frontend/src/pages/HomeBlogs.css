@@ -1,3 +1,16 @@
+.home-top-image {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.home-top-image img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
 /* ---------------- Home Container ---------------- */
 .home-container {
   max-width: 1200px;
