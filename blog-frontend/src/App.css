@@ -19,6 +19,7 @@ body {
 
   background-attachment: fixed;
 
+
   color: #eee;
   line-height: 1.6;
 }
@@ -36,7 +37,7 @@ nav {
   border-radius: 1rem;
   margin: 0.5rem auto;
   max-width: 1200px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 /* Navbar links */
