@@ -1,21 +1,21 @@
-// routes/blogRoutes.js
-
 import express from "express";
+import authMiddleware from "../middleware/authMiddleware.js";
 import {
   getAllBlogs,
   getBlogById,
   createBlog,
   updateBlog,
   deleteBlog,
-} from "../controllers/blogController.js"; // 🔹 Make sure to include `.js`
+} from "../controllers/blogController.js";
 
 const router = express.Router();
 
-// Routes
 router.get("/", getAllBlogs);
 router.get("/:id", getBlogById);
-router.post("/", createBlog);
-router.put("/:id", updateBlog);
-router.delete("/:id", deleteBlog);
+
+// protect these
+router.post("/", authMiddleware, createBlog);
+router.put("/:id", authMiddleware, updateBlog);
+router.delete("/:id", authMiddleware, deleteBlog);
 
 export default router;
