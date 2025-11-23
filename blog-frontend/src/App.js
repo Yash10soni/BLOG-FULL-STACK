@@ -17,7 +17,6 @@ import IntroPage from "./pages/IntroPage";
 import AIBox from "./components/AIBox";
 
 import "./App.css";
-
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
 

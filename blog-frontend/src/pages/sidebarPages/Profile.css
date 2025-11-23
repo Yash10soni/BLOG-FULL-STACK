@@ -1,3 +1,14 @@
+.avatar-preview-top {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 2rem auto 1rem auto;
+  border: 4px solid #a4508b;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
 /* Profile Page Form Styling */
 .profile-form {
   background: rgba(50, 0, 80, 0.7); /* semi-transparent dark purple */
